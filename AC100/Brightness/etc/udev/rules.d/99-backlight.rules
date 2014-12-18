@@ -1,0 +1,1 @@
+KERNEL=="backlight" SUBSYSTEM=="backlight" RUN+="/sbin/setup_backlight.sh"
