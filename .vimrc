@@ -27,6 +27,7 @@ Plugin 'bling/vim-airline'
 Plugin 'vim-scripts/matchit.zip'
 "Plugin 'vim-scripts/SuperTab--Van-Dewoestine'
 Plugin 'ervandew/supertab' " should be newer as SuperTab--Van-Dewoestine
+Plugin 'mr-july/keymap.vim'
 
 """ languages support
 ""
@@ -173,90 +174,6 @@ else
 endif
 
 
-function ToggleKeyMap()
-  if &keymap=~?"deru"
-    exe "set keymap= | echo \"none\""
-  else
-    exe "set keymap=deru | echo \"deru\""
-  endif
-endfunction
-
-inoremap <F9> <c-o>:call ToggleKeyMap()<cr>
-noremap <F9> :call ToggleKeyMap()<cr>
-
-
 " for spell checking the following command:
 " > for x in de.utf-8.spl de.utf-8.sug en.utf-8.spl en.utf-8.sug ru.utf-8.spl ru.utf-8.sug ; do wget http://ftp.vim.org/vim/runtime/spell/$x; done
 " should be executed in ~/.vim/spell
-
-
-" next lines should be placed into ~/.vim/keymap/deru.vim
-" don't forget to remove comments!
-"
-"loadkeymap
-"A   А
-"B   Б
-"C   Ц
-"D   Д
-"E   Е
-"F   Ф
-"G   Г
-"H   Х
-"I   И
-"J   Й
-"K   К
-"L   Л
-"M   М
-"N   Н
-"O   О
-"P   П
-"Q   Я
-"R   Р
-"S   С
-"T   Т
-"U   У
-"V   В
-"W   Ж
-"X   Ь
-"Y   Ы
-"Z   З
-"a   а
-"b   б
-"c   ц
-"d   д
-"e   е
-"f   ф
-"g   г
-"h   х
-"i   и
-"j   й
-"k   к
-"l   л
-"m   м
-"n   н
-"o   о
-"p   п
-"q   я
-"r   р
-"s   с
-"t   т
-"u   у
-"v   в
-"w   ж
-"x   ь
-"y   ы
-"z   з
-"Ä   Э
-"ä   э
-"Ü   Ю
-"ü   ю
-"{   Щ
-"[   Ш
-"}   щ
-"]   ш
-"Ö   Ч
-"ö   ч
-"#   Ъ
-"ß   ъ
-"^   ё
-"°   Ё
