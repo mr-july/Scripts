@@ -27,6 +27,7 @@ Plugin 'bling/vim-airline'
 Plugin 'vim-scripts/matchit.zip'
 "Plugin 'vim-scripts/SuperTab--Van-Dewoestine'
 Plugin 'ervandew/supertab' " should be newer as SuperTab--Van-Dewoestine
+Plugin 'nielsmadan/harlequin' " contrast dark color scheme
 Plugin 'mr-july/keymap.vim'
 
 """ languages support
