@@ -27,7 +27,7 @@ Plugin 'bling/vim-airline'
 Plugin 'vim-scripts/matchit.zip'
 "Plugin 'vim-scripts/SuperTab--Van-Dewoestine'
 Plugin 'ervandew/supertab' " should be newer as SuperTab--Van-Dewoestine
-Plugin 'nielsmadan/harlequin' " contrast dark color scheme
+Plugin 'mr-july/harlequin' " contrast dark color scheme
 Plugin 'mr-july/keymap.vim'
 
 """ languages support
@@ -73,6 +73,8 @@ if &t_Co > 2 || has("gui_running")
   syntax on
   set hlsearch
 endif
+
+colorscheme harlequin
 
 " Only do this part when compiled with support for autocommands.
 if has("autocmd")
