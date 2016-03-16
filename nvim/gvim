@@ -1,0 +1,31 @@
+#!/bin/sh
+
+paramGeometry="--geometry 90x45"
+
+gvimFifo="/proc/$$/fd/0"
+tty=`tty`
+
+cmd="vim"
+
+if [ $# -gt 0 ]
+then
+  for var in "$@"
+  do
+    cmd="$cmd \"$var\""
+  done
+fi
+
+noRedirection=`ls -l "$gvimFifo" | grep "$tty"`
+
+if [ -z "$noRedirection" ]
+then
+  cmd="$cmd < $gvimFifo"
+fi
+
+#echo "numArgs: '$#'; will call '$cmd'"
+xfce4-terminal --hide-menubar --icon "accessories-text-editor" $paramGeometry -x $SHELL -i -c "$cmd"
+
+if [ -z "$noRedirection" ]
+then
+  sleep 1
+fi
