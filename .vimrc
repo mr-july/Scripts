@@ -34,13 +34,25 @@ Plugin 'mr-july/keymap.vim'
 ""
 " JavaScript
 Plugin 'pangloss/vim-javascript'
+Plugin 'mxw/vim-jsx'
+
+" TypoScript
+Plugin 'elmar-hinz/vim.typoscript'
 
 " Nim
 Plugin 'zah/nim.vim'
 
+" Go
+Plugin 'fatih/vim-go'
+
+" Xdebug for PHP
+Plugin 'joonty/vdebug'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
-filetype plugin indent on    " required
+
+filetype off                    " Reset filetype detection first ...
+filetype plugin indent on       " ... and enable filetype detection
 " To ignore plugin indent changes, instead use:
 "filetype plugin on
 "
@@ -63,6 +75,7 @@ set history=200         " keep 200 lines of command line history
 set ruler               " show the cursor position all the time
 set showcmd		" display incomplete commands
 set incsearch		" do incremental searching
+set title               " set window title in terminal
 
 " Don't use Ex mode, use Q for formatting
 "map Q gq
@@ -74,7 +87,9 @@ if &t_Co > 2 || has("gui_running")
   set hlsearch
 endif
 
-colorscheme harlequin
+if !has("gui_running")
+  colorscheme harlequin
+endif
 
 " Only do this part when compiled with support for autocommands.
 if has("autocmd")
@@ -92,9 +107,9 @@ if has("autocmd")
   " Don't do it when the position is invalid or when inside an event handler
   " (happens when dropping a file on gvim).
   autocmd BufReadPost *
-    \ if line("'\"") > 0 && line("'\"") <= line("$") |
-    \   exe "normal g`\"" |
-    \ endif
+        \ if line("'\"") > 0 && line("'\"") <= line("$") |
+        \   exe "normal g`\"" |
+        \ endif
 
 endif " has("autocmd")
 
@@ -102,6 +117,7 @@ endif " has("autocmd")
 set wildmenu            " enable browsing of potential file matches!
 set shiftwidth=2        " set shift width
 set expandtab           " expand tabs
+set tabstop=2
 set softtabstop=2
 set lazyredraw          " for resyncing broken syntax
 
@@ -130,6 +146,7 @@ vnoremap <S-Del> "+x
 
 " CTRL-Insert is Copy
 vnoremap <C-Insert> "+y
+vnoremap <C-c> "+y
 
 " SHIFT-Insert is Paste
 nnoremap <SID>Paste "=@+.'xy'<CR>gPFx"_2x:echo<CR>
