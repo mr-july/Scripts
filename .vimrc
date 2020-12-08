@@ -1,6 +1,7 @@
 " to install plugins with Vundle do the following:
 " > mkdir -p ~/.vim/bundle/
 " > git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+" > ln -s ~/.vimrc ~/.vim/init.vim
 " then inside vim:
 " :PluginInstall
 
@@ -19,34 +20,32 @@ Plugin 'gmarik/Vundle.vim'
 " search and replace with increment
 " :let g:I=0   :%s#XXX#\=INC(1)#
 Plugin 'mr-july/increment.vim'
-" javascript support
+" auto change to buffer's file directory (always relative paths)
 Plugin 'mr-july/CD.vim'
-"Plugin 'vim-scripts/minibufexplorerpp'
-Plugin 'weynhamz/vim-plugin-minibufexpl'
-Plugin 'bling/vim-airline'
+"Plugin 'weynhamz/vim-plugin-minibufexpl'
+Plugin 'vim-airline/vim-airline'
 Plugin 'vim-scripts/matchit.zip'
-"Plugin 'vim-scripts/SuperTab--Van-Dewoestine'
-Plugin 'ervandew/supertab' " should be newer as SuperTab--Van-Dewoestine
+" Adds filetype glyphs (icons) to various vim plugins
+Plugin 'ryanoasis/vim-devicons'
+Plugin 'ervandew/supertab'
 Plugin 'mr-july/harlequin' " contrast dark color scheme
 Plugin 'mr-july/keymap.vim'
 
 """ languages support
 ""
-" JavaScript
-Plugin 'pangloss/vim-javascript'
-Plugin 'mxw/vim-jsx'
+Plugin 'sheerun/vim-polyglot'
+
+" Linter
+Plugin 'dense-analysis/ale'
 
 " TypoScript
-Plugin 'elmar-hinz/vim.typoscript'
+"Plugin 'elmar-hinz/vim.typoscript'
 
 " Nim
-Plugin 'zah/nim.vim'
-
-" Go
-Plugin 'fatih/vim-go'
+"Plugin 'zah/nim.vim'
 
 " Xdebug for PHP
-Plugin 'joonty/vdebug'
+"Plugin 'joonty/vdebug'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -193,6 +192,11 @@ else
   echoerr "Sorry, this version of (g)vim was not compiled with +multi_byte"
 endif
 
+" show current buffers with the aid of Airline
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#buffers_label = ':b'
+let g:airline#extensions#tabline#buffer_nr_show = 1
+let g:airline#extensions#tabline#buffer_nr_format = '%s:'
 
 " for spell checking the following command:
 " > for x in de.utf-8.spl de.utf-8.sug en.utf-8.spl en.utf-8.sug ru.utf-8.spl ru.utf-8.sug ; do wget http://ftp.vim.org/vim/runtime/spell/$x; done
