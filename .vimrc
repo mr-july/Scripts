@@ -129,6 +129,8 @@ set nobackup            " do not keep a backup file, use versions instead
 set viminfo='20,\"50    " read/write a .viminfo file, don't store more
                         " than 50 lines of registers
 
+set mouse=a             " support mouse in all modes
+
 " backspace in Visual mode deletes selection
 vnoremap <BS> d
 
