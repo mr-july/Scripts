@@ -28,7 +28,8 @@ Plugin 'vim-scripts/matchit.zip'
 " Adds filetype glyphs (icons) to various vim plugins
 Plugin 'ryanoasis/vim-devicons'
 Plugin 'ervandew/supertab'
-Plugin 'mr-july/harlequin' " contrast dark color scheme
+Plugin 'sjl/badwolf'
+"Plugin 'mr-july/harlequin' " contrast dark color scheme
 Plugin 'mr-july/keymap.vim'
 
 """ languages support
@@ -72,8 +73,8 @@ set autoindent		" always set autoindenting on
 
 set history=200         " keep 200 lines of command line history
 set ruler               " show the cursor position all the time
-set showcmd		" display incomplete commands
-set incsearch		" do incremental searching
+set showcmd		          " display incomplete commands
+set incsearch		        " do incremental searching
 set title               " set window title in terminal
 
 " Don't use Ex mode, use Q for formatting
@@ -87,7 +88,8 @@ if &t_Co > 2 || has("gui_running")
 endif
 
 if !has("gui_running")
-  colorscheme harlequin
+  "colorscheme harlequin
+  colorscheme badwolf
 endif
 
 " Only do this part when compiled with support for autocommands.
@@ -196,11 +198,11 @@ endif
 " use extended fonts
 let g:airline_powerline_fonts = 1
 " allow redefine standard symbols
-if !exists('g:airline_symbols')
-  let g:airline_symbols = {}
-endif
+"if !exists('g:airline_symbols')
+"  let g:airline_symbols = {}
+"endif
 " literal maxline marker
-let g:airline_symbols.maxlinenr = 'ln'
+"let g:airline_symbols.maxlinenr = 'ln'
 " show current buffers with the aid of Airline
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#buffers_label = ':b'
