@@ -193,10 +193,13 @@ else
 endif
 
 "" Airline
-"
+" use extended fonts
+let g:airline_powerline_fonts = 1
+" allow redefine standard symbols
 if !exists('g:airline_symbols')
   let g:airline_symbols = {}
 endif
+" literal maxline marker
 let g:airline_symbols.maxlinenr = 'ln'
 " show current buffers with the aid of Airline
 let g:airline#extensions#tabline#enabled = 1
