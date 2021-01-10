@@ -1,55 +1,57 @@
-" to install plugins with Vundle do the following:
-" > mkdir -p ~/.vim/bundle/
-" > git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+" to install plugins with vim-plug do the following:
+" > mkdir -p ~/.vim/plugged/
+" > git clone https://github.com/junegunn/vim-plug.git ~/.vim/plugged/vim-plug
+" > mkdir -p ~/.vim/autoload/
+" > ln -s ~/.vim/plugged/vim-plug/plug.vim ~/.vim/autoload/plug.vim
 " > ln -s ~/.vimrc ~/.vim/init.vim
 " then inside vim:
-" :PluginInstall
+" :PlugInstall
 
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
+" vim-plug initialization
+call plug#begin('~/.vim/plugged')
 
-" let Vundle manage Vundle, required
-Plugin 'gmarik/Vundle.vim'
+" let vim-plug manage vim-plug, required
+Plug 'junegunn/vim-plug'
 
 " search and replace with increment
 " :let g:I=0   :%s#XXX#\=INC(1)#
-Plugin 'mr-july/increment.vim'
+Plug 'mr-july/increment.vim'
 " auto change to buffer's file directory (always relative paths)
-Plugin 'mr-july/CD.vim'
-"Plugin 'weynhamz/vim-plugin-minibufexpl'
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-scripts/matchit.zip'
+Plug 'mr-july/CD.vim'
+"Plug 'weynhamz/vim-plugin-minibufexpl'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-scripts/matchit.zip'
 " Adds filetype glyphs (icons) to various vim plugins
-Plugin 'ryanoasis/vim-devicons'
-Plugin 'ervandew/supertab'
-Plugin 'sjl/badwolf'
-"Plugin 'mr-july/harlequin' " contrast dark color scheme
-Plugin 'mr-july/keymap.vim'
+Plug 'ryanoasis/vim-devicons'
+Plug 'ervandew/supertab'
+Plug 'sjl/badwolf' " contrast dark color scheme
+"Plug 'mr-july/harlequin' " contrast dark color scheme
+Plug 'mr-july/keymap.vim'
 
 """ languages support
 ""
-Plugin 'sheerun/vim-polyglot'
+Plug 'sheerun/vim-polyglot'
 
 " Linter
-Plugin 'dense-analysis/ale'
+Plug 'dense-analysis/ale'
+
+" Omnicompletion
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " TypoScript
-"Plugin 'elmar-hinz/vim.typoscript'
+"Plug 'elmar-hinz/vim.typoscript'
 
 " Nim
-"Plugin 'zah/nim.vim'
+"Plug 'zah/nim.vim'
 
 " Xdebug for PHP
-"Plugin 'joonty/vdebug'
+"Plug 'joonty/vdebug'
 
 " All of your Plugins must be added before the following line
-call vundle#end()            " required
+call plug#end()            " required
 
 filetype off                    " Reset filetype detection first ...
 filetype plugin indent on       " ... and enable filetype detection
@@ -57,12 +59,12 @@ filetype plugin indent on       " ... and enable filetype detection
 "filetype plugin on
 "
 " Brief help
-" :PluginList       - lists configured plugins
-" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
-" :PluginSearch foo - searches for foo; append `!` to refresh local cache
-" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
+" :PlugList       - lists configured plugins
+" :PlugInstall    - installs plugins; append `!` to update or just :PluginUpdate
+" :PlugSearch foo - searches for foo; append `!` to refresh local cache
+" :PlugClean      - confirms removal of unused plugins; append `!` to auto-approve removal
 "
-" see :h vundle for more details or wiki for FAQ
+" see :h vim-plug for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
 
 
