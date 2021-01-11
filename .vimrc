@@ -1,11 +1,13 @@
-" to install plugins with vim-plug do the following:
-" > mkdir -p ~/.vim/plugged/
-" > git clone https://github.com/junegunn/vim-plug.git ~/.vim/plugged/vim-plug
-" > mkdir -p ~/.vim/autoload/
-" > ln -s ~/.vim/plugged/vim-plug/plug.vim ~/.vim/autoload/plug.vim
-" > ln -s ~/.vimrc ~/.vim/init.vim
-" then inside vim:
-" :PlugInstall
+" Initial setup
+if empty(glob('~/.vim/autoload/plug.vim'))
+  " Install vim-plug if not found
+  silent !mkdir -p ~/.vim/plugged/
+  silent !git clone https://github.com/junegunn/vim-plug.git ~/.vim/plugged/vim-plug
+  silent !mkdir -p ~/.vim/autoload/
+  silent !ln -s ~/.vim/plugged/vim-plug/plug.vim ~/.vim/autoload/plug.vim
+  " Link NeoVim initialization script
+  silent !ln -s ~/.vimrc ~/.vim/init.vim
+endif
 
 set nocompatible              " be iMproved, required
 filetype off                  " required
@@ -53,20 +55,13 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " All of your Plugins must be added before the following line
 call plug#end()            " required
 
+" Run PlugInstall if there are missing plugins
+autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
+  \| PlugInstall --sync | source $MYVIMRC
+\| endif
+
 filetype off                    " Reset filetype detection first ...
 filetype plugin indent on       " ... and enable filetype detection
-" To ignore plugin indent changes, instead use:
-"filetype plugin on
-"
-" Brief help
-" :PlugList       - lists configured plugins
-" :PlugInstall    - installs plugins; append `!` to update or just :PluginUpdate
-" :PlugSearch foo - searches for foo; append `!` to refresh local cache
-" :PlugClean      - confirms removal of unused plugins; append `!` to auto-approve removal
-"
-" see :h vim-plug for more details or wiki for FAQ
-" Put your non-Plugin stuff after this line
-
 
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start whichwrap+=<,>,[,]
